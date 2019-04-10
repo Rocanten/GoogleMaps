@@ -1,24 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Maps View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MapsViewController" customModule="Maps" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="t6y-ZM-424"/>
+                        <viewControllerLayoutGuide type="bottom" id="Drz-iV-1ID"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2yk-g9-EaN" customClass="UIMapsView" customModule="Maps" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="66O-aM-Y2a" customClass="UITopBarView" customModule="Maps" customModuleProvider="target">
+                                <rect key="frame" x="16" y="60" width="343" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Расстояние: -" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qRP-2k-D4J">
+                                        <rect key="frame" x="18" y="12" width="243" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O4Z-aE-UHO">
+                                        <rect key="frame" x="279" y="0.0" width="64" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="OnP-wM-zXC"/>
+                                            <constraint firstAttribute="width" constant="64" id="xe4-gI-fIi"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
+                                        <state key="normal" image="Direction"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="qRP-2k-D4J" firstAttribute="leading" secondItem="66O-aM-Y2a" secondAttribute="leading" constant="18" id="6hr-wi-CLN"/>
+                                    <constraint firstAttribute="bottom" secondItem="O4Z-aE-UHO" secondAttribute="bottom" id="7MK-vg-yMY"/>
+                                    <constraint firstAttribute="bottom" secondItem="qRP-2k-D4J" secondAttribute="bottom" constant="11" id="CBp-Jr-U0y"/>
+                                    <constraint firstItem="O4Z-aE-UHO" firstAttribute="leading" secondItem="qRP-2k-D4J" secondAttribute="trailing" constant="18" id="MdZ-Px-diL"/>
+                                    <constraint firstItem="O4Z-aE-UHO" firstAttribute="top" secondItem="66O-aM-Y2a" secondAttribute="top" id="Rfh-Sw-Ezz"/>
+                                    <constraint firstAttribute="height" constant="44" id="Ugc-qF-5aD"/>
+                                    <constraint firstItem="qRP-2k-D4J" firstAttribute="top" secondItem="66O-aM-Y2a" secondAttribute="top" constant="12" id="hc7-Vi-dqc"/>
+                                    <constraint firstAttribute="trailing" secondItem="O4Z-aE-UHO" secondAttribute="trailing" id="svY-Wo-1we"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="createRouteButton" destination="O4Z-aE-UHO" id="3cF-QR-lXP"/>
+                                    <outlet property="distanceLabel" destination="qRP-2k-D4J" id="XT6-Wf-Ou7"/>
+                                </connections>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <constraints>
+                            <constraint firstItem="66O-aM-Y2a" firstAttribute="top" secondItem="t6y-ZM-424" secondAttribute="bottom" constant="16" id="8ET-eM-p4r"/>
+                            <constraint firstItem="2yk-g9-EaN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="AyR-wg-bAD"/>
+                            <constraint firstAttribute="trailing" secondItem="2yk-g9-EaN" secondAttribute="trailing" id="DZr-MX-JUH"/>
+                            <constraint firstAttribute="bottom" secondItem="2yk-g9-EaN" secondAttribute="bottom" id="as5-Wh-9WT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="66O-aM-Y2a" secondAttribute="trailing" id="bxY-ov-LVr"/>
+                            <constraint firstItem="66O-aM-Y2a" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ion-PT-GLx"/>
+                            <constraint firstItem="2yk-g9-EaN" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="xcg-Lq-lTp"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="2yk-g9-EaN" id="eYg-oC-qJ1"/>
+                        <outlet property="topBarView" destination="66O-aM-Y2a" id="oge-Bn-nsS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="Direction" width="32" height="32"/>
+    </resources>
 </document>
